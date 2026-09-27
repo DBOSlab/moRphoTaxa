@@ -260,7 +260,7 @@ if (!all(c("decimalLatitude", "decimalLongitude") %in% names(raw_data))) {
 geodata <- raw_data
 
 # Convert coordinates to numeric
-geodata$decimalLatitude  <- as.numeric(geodata$decimalLatitude)
+geodata$decimalLatitude <- as.numeric(geodata$decimalLatitude)
 geodata$decimalLongitude <- as.numeric(geodata$decimalLongitude)
 
 # Filter selected taxa
@@ -332,7 +332,7 @@ if (verbose) {
   message("  Fetching WorldClim rasters (res = ", wc_res, ")...")
 }
 
-bio_stack  <- geodata::worldclim_global(var = "bio",  res = wc_res, path = data_path)
+bio_stack <- geodata::worldclim_global(var = "bio",  res = wc_res, path = data_path)
 elev_stack <- geodata::worldclim_global(var = "elev", res = wc_res, path = data_path)
 
 names(bio_stack) <- gsub("^wc2\\.1_[0-9.]+m_", "", names(bio_stack))
@@ -418,10 +418,10 @@ if (edaphic) {
 
 # ---- Attach attributes ---------------------------------------------------------
 
-attr(geodata, "env_cols")   <- env_cols
+attr(geodata, "env_cols") <- env_cols
 attr(geodata, "clim_stack") <- clim_stack
 attr(geodata, "soil_stack") <- soil_stack
-attr(geodata, "pts")        <- pts
+attr(geodata, "pts") <- pts
 
 if (verbose) {
   message(

@@ -428,7 +428,7 @@ pca_res <- stats::prcomp(env_complete, scale. = TRUE)
 # Per-axis variance, kept separate from the cumulative vector
 var_exp <- summary(pca_res)$importance[2, ]
 cum_var <- cumsum(var_exp)
-n_axes  <- max(2, min(which(cum_var >= var_threshold)))
+n_axes <- max(2, min(which(cum_var >= var_threshold)))
 
 if (verbose) {
   message("  Environmental source: ", env_source,
@@ -591,7 +591,7 @@ if (verbose) {
 }
 
 # ---- Null distribution plot --------------------------------------------------
-eq_sim  <- eq_test$sim[, "D"]
+eq_sim <- eq_test$sim[, "D"]
 sim_sim <- sim_test$sim[, "D"]
 
 null_df <- data.frame(
@@ -633,7 +633,7 @@ results_list[[pair_name]] <- data.frame(
   taxon2 = t2,
   n1 = nrow(occ1),
   n2 = nrow(occ2),
-  schoener_D  = round(D, 4),
+  schoener_D = round(D, 4),
   equiv_p = round(eq_test$p.D, 4),
   equiv_sig = eq_test$p.D < alpha,
   equiv_null_mean = round(mean(eq_sim), 4),
@@ -689,7 +689,7 @@ p_heat <- ggplot2::ggplot(
   ggplot2::theme(
     axis.text.x = ggplot2::element_text(angle = 45, hjust = 1, face = "italic"),
     axis.text.y = ggplot2::element_text(face = "italic"),
-    panel.grid  = ggplot2::element_blank()
+    panel.grid = ggplot2::element_blank()
   )
 
 if (save) {
@@ -728,7 +728,7 @@ p_pca <- ggplot2::ggplot() +
   ) +
   ggplot2::theme_bw() +
   ggplot2::theme(
-    panel.grid  = ggplot2::element_blank(),
+    panel.grid = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(face = "italic")
   )
 
@@ -757,14 +757,14 @@ if (verbose) {
 }
 
 invisible(list(
-  results           = results_df,
-  D_matrix          = mat,
-  pca               = pca_res,
-  variables         = colnames(env_complete),
+  results = results_df,
+  D_matrix = mat,
+  pca = pca_res,
+  variables = colnames(env_complete),
   removed_variables = removed_variables,
-  plots             = list(scree = p_scree, heatmap = p_heat,
-                           niche_space = p_pca, tests = test_plots),
-  output_dir        = output_dir
+  plots = list(scree = p_scree, heatmap = p_heat,
+               niche_space = p_pca, tests = test_plots),
+  output_dir = output_dir
 ))
 }
 

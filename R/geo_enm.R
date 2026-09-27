@@ -296,8 +296,8 @@ if (!is.logical(verbose) || length(verbose) != 1L) {
 # ---- Internal settings (not user arguments) -----------------------------------
 
 base_dir <- "Figs_ENM"   # parent folder for saved outputs
-cor_cutoff <- 0.8          # |r| above which predictors are dropped
-n_sample   <- 5000         # cells sampled for the correlation matrix
+cor_cutoff <- 0.8        # |r| above which predictors are dropped
+n_sample <- 5000       # cells sampled for the correlation matrix
 
 if (verbose) message("Running Ensemble Species Distribution Models...")
 
@@ -544,7 +544,7 @@ pa$pr_ab <- 0
 # -- Modelling data
 full_data <- dplyr::bind_rows(occ_pts, pa)
 
-env_vals  <- terra::extract(pred_stack, full_data[, c("x", "y")])[, -1, drop = FALSE]
+env_vals <- terra::extract(pred_stack, full_data[, c("x", "y")])[, -1, drop = FALSE]
 full_data <- cbind(full_data, env_vals)
 full_data <- full_data[stats::complete.cases(full_data[, names(env_vals)]), ]
 
@@ -556,8 +556,8 @@ if (sum(full_data$pr_ab == 1) < min_occ) {
 
 full_data <- .safe_run(
   flexsdm::part_random(
-    data   = full_data,
-    pr_ab  = "pr_ab",
+    data = full_data,
+    pr_ab = "pr_ab",
     method = c(method = "kfold", folds = folds)
   ),
   paste0("Data partitioning failed for '", taxon_name, "' (too few records for ",
@@ -621,10 +621,10 @@ if (verbose) {
 # -- Ensemble
 ens <- .safe_run(
   flexsdm::fit_ensemble(
-    models    = fits,
-    thr       = "max_sens_spec",
+    models = fits,
+    thr = "max_sens_spec",
     thr_model = "max_sens_spec",
-    metric    = "SORENSEN"
+    metric = "SORENSEN"
   ),
   paste0("Ensemble fitting failed for '", taxon_name, "'")
 )
@@ -795,7 +795,7 @@ if (length(all_results) == 0) {
   suitability <- list()
   maps <- list()
 } else {
-  summary_df  <- do.call(rbind, lapply(all_results, `[[`, "row"))
+  summary_df <- do.call(rbind, lapply(all_results, `[[`, "row"))
   suitability <- stats::setNames(lapply(all_results, `[[`, "suit_map"), summary_df$taxon)
   maps <- stats::setNames(lapply(all_results, `[[`, "map"),      summary_df$taxon)
 

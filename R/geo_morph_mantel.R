@@ -196,8 +196,8 @@ if (!all(c("decimalLatitude", "decimalLongitude") %in% names(geodata))) {
   stop("`geodata` must contain `decimalLatitude` and `decimalLongitude` columns.")
 }
 
-cor_method      <- match.arg(cor_method)
-dist_method     <- match.arg(dist_method)
+cor_method <- match.arg(cor_method)
+dist_method <- match.arg(dist_method)
 geo_dist_method <- match.arg(geo_dist_method)
 
 if (!is.numeric(permutations) || length(permutations) != 1L ||
@@ -237,7 +237,7 @@ coords <- geodata[
   drop = FALSE
 ]
 coords$decimalLongitude <- as.numeric(coords$decimalLongitude)
-coords$decimalLatitude  <- as.numeric(coords$decimalLatitude)
+coords$decimalLatitude <- as.numeric(coords$decimalLatitude)
 
 # Numeric trait columns only: `taxon` (and any other non-numeric column)
 # must not enter the morphological distance.
@@ -254,8 +254,8 @@ morpho <- analysis_data[common_ids, trait_cols, drop = FALSE]
 
 # Drop specimens without valid coordinates
 ok_coords <- stats::complete.cases(coords)
-coords    <- coords[ok_coords, , drop = FALSE]
-morpho    <- morpho[ok_coords, , drop = FALSE]
+coords <- coords[ok_coords, , drop = FALSE]
+morpho <- morpho[ok_coords, , drop = FALSE]
 
 # Drop traits with no observation, then specimens with no observation
 morpho <- morpho[, colSums(!is.na(morpho)) > 0, drop = FALSE]
@@ -291,8 +291,8 @@ if (verbose) {
 
 if (geo_dist_method == "haversine") {
   dist_geo <- .haversine_dist(
-    lon    = coords$decimalLongitude,
-    lat    = coords$decimalLatitude,
+    lon = coords$decimalLongitude,
+    lat = coords$decimalLatitude,
     labels = rownames(coords)
   )
 } else {
@@ -318,7 +318,7 @@ if (anyNA(dist_morpho)) {
 
 mantel_result <- vegan::mantel(
   dist_geo, dist_morpho,
-  method       = cor_method,
+  method = cor_method,
   permutations = permutations
 )
 
@@ -342,7 +342,7 @@ sig_label <- if (mantel_result$signif < 0.001) {
 }
 
 plot_data <- data.frame(
-  geo_dist    = as.vector(dist_geo),
+  geo_dist = as.vector(dist_geo),
   morpho_dist = as.vector(dist_morpho)
 )
 
@@ -395,12 +395,12 @@ if (verbose) {
 }
 
 invisible(list(
-  mantel      = mantel_result,
-  dist_geo    = dist_geo,
+  mantel = mantel_result,
+  dist_geo = dist_geo,
   dist_morpho = dist_morpho,
-  plot        = p_mantel,
-  n           = nrow(coords),
-  output_dir  = output_dir
+  plot = p_mantel,
+  n = nrow(coords),
+  output_dir = output_dir
 ))
 }
 

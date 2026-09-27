@@ -205,7 +205,7 @@ if (is.null(base_cols) || length(base_cols) == 0L) {
 }
 
 cor_method <- match.arg(cor_method)
-order_by   <- match.arg(order_by)
+order_by <- match.arg(order_by)
 
 if (order_by != "none") {
   if (!is.data.frame(geodata)) {
@@ -263,7 +263,7 @@ if ("all" %in% blocks) {
   run_blocks <- all_blocks
 } else {
   requested <- intersect(blocks, names(all_blocks))
-  invalid   <- setdiff(blocks, names(all_blocks))
+  invalid <- setdiff(blocks, names(all_blocks))
 
   if (length(requested) == 0L) {
     stop(
@@ -282,7 +282,7 @@ if ("all" %in% blocks) {
 specimen_ids <- rownames(analysis_data)
 
 if (order_by != "none") {
-  geo_col    <- if (order_by == "latitude") "decimalLatitude" else "decimalLongitude"
+  geo_col <- if (order_by == "latitude") "decimalLatitude" else "decimalLongitude"
   common_ids <- intersect(specimen_ids, rownames(geodata))
 
   if (length(common_ids) == 0L) {
@@ -293,7 +293,7 @@ if (order_by != "none") {
   }
 
   coord_vals <- as.numeric(geodata[common_ids, geo_col])
-  has_coord  <- !is.na(coord_vals)
+  has_coord <- !is.na(coord_vals)
   common_ids <- common_ids[has_coord]
   coord_vals <- coord_vals[has_coord]
 
@@ -327,7 +327,7 @@ if (verbose) {
 # ---- Run each block -----------------------------------------------------------
 
 results_list <- list()
-plots        <- list()
+plots <- list()
 
 for (block_name in names(run_blocks)) {
 
@@ -350,7 +350,7 @@ for (block_name in names(run_blocks)) {
   )
 
   df_plot <- data.frame(
-    trait   = gsub("_", " ", gsub("/.*", "", valid_cols)),
+    trait = gsub("_", " ", gsub("/.*", "", valid_cols)),
     autocor = unname(autocor),
     stringsAsFactors = FALSE
   )
@@ -381,8 +381,8 @@ for (block_name in names(run_blocks)) {
   p_autocor <- ggplot2::ggplot(
     df_plot,
     ggplot2::aes(
-      x    = stats::reorder(.data$trait, .data$autocor),
-      y    = .data$autocor,
+      x = stats::reorder(.data$trait, .data$autocor),
+      y = .data$autocor,
       fill = .data$autocor
     )
   ) +
@@ -396,16 +396,16 @@ for (block_name in names(run_blocks)) {
     ggplot2::coord_flip() +
     ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = 0.12)) +
     ggplot2::labs(
-      x     = NULL,
-      y     = "Lag-1 Autocorrelation",
-      fill  = "Autocorrelation",
+      x = NULL,
+      y = "Lag-1 Autocorrelation",
+      fill = "Autocorrelation",
       title = paste0("Autocorrelation - ", block_name)
     ) +
     ggplot2::theme_bw() +
     ggplot2::theme(
       panel.grid.major.y = ggplot2::element_blank(),
-      panel.grid.minor   = ggplot2::element_blank(),
-      axis.text.y        = ggplot2::element_text(size = 7)
+      panel.grid.minor = ggplot2::element_blank(),
+      axis.text.y = ggplot2::element_text(size = 7)
     )
 
   for (ext in file_formats) {
@@ -421,8 +421,8 @@ for (block_name in names(run_blocks)) {
   plots[[block_name]] <- p_autocor
 
   results_list[[block_name]] <- data.frame(
-    block   = block_name,
-    trait   = df_plot$trait,
+    block = block_name,
+    trait = df_plot$trait,
     autocor = df_plot$autocor,
     stringsAsFactors = FALSE
   )
@@ -449,10 +449,10 @@ if (verbose) {
 }
 
 invisible(list(
-  results        = results,
-  plots          = plots,
+  results = results,
+  plots = plots,
   specimen_order = specimen_ids,
-  output_dir     = output_dir
+  output_dir = output_dir
 ))
 }
 

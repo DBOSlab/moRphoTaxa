@@ -1432,9 +1432,9 @@ if (!is.null(quanti_specific) && quanti_specific %in% non_angiosperm_presets) {
 # Assemble trait names and codes ####
 
 quali_traits <- c()
-quali_codes  <- c()
+quali_codes <- c()
 quanti_traits <- c()
-quanti_codes  <- c()
+quanti_codes <- c()
 
 # Add default qualitative traits
 if (quali_default) {
@@ -1484,11 +1484,11 @@ if (!is.null(quanti_specific)) {
 
 # Combine all traits, keeping each label paired with its code
 all_traits_raw <- c(quali_traits, quanti_traits)
-all_codes_raw  <- c(quali_codes, quanti_codes)
+all_codes_raw <- c(quali_codes, quanti_codes)
 
 keep <- !duplicated(all_traits_raw)
 all_traits <- all_traits_raw[keep]
-all_codes  <- all_codes_raw[keep]
+all_codes <- all_codes_raw[keep]
 
 #_______________________________________________________________________________
 
