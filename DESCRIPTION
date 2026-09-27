@@ -83,6 +83,8 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0),
     withr
+Remotes:
+    sjevelazco/flexsdm
 Config/testthat/edition: 3
 LazyData: true
 Config/roxygen2/version: 8.1.0
