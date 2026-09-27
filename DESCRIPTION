@@ -1,0 +1,88 @@
+Package: moRphoTaxa
+Type: Package
+Title: An Automated and Scalable R Pipeline for Morphometrics, Ecogeography, and Species Delimitation
+Version: 1.0.0
+Authors@R:
+    c(
+      person(
+        given = "João V. B.",
+        family = "Dornelas",
+        role = c("aut", "cre"),
+        email = "joaovitordornelas@hotmail.com"
+      ),
+      person(
+        given = "Valner M. M.",
+        family = "Jordão",
+        role = "aut"
+      ),
+      person(
+        given = "Andressa N.",
+        family = "Lima",
+        role = "aut"
+      ),
+      person(
+        given = "Domingos",
+        family = "Cardoso",
+        role = c("aut", "cph"),
+        email = "domingoscardoso@jbrj.gov.br",
+        comment = c(ORCID = "0000-0001-7072-2656")
+      )
+    )
+Maintainer: João V. B. Dornelas <joaovitordornelas@hotmail.com>
+Description: Provides an automated, reproducible, and scalable workflow for
+    integrative plant taxonomy by combining herbarium specimen records,
+    morphological data, ecogeographic information, and multivariate analyses.
+    The package retrieves specimen records from major online biodiversity
+    repositories, including GBIF, Jabot, Reflora Virtual Herbarium, and
+    speciesLink, and integrates them into a standardized dataset. It provides
+    tools for data cleaning and validation, construction of customizable
+    morphological trait matrices, and analysis of morphological and
+    ecogeographic variation using methods such as principal component analysis
+    (PCA), k-means clustering, and non-metric multidimensional scaling (NMDS).
+    The workflow supports reproducible species delimitation by producing
+    standardized analytical outputs, including figures, tables, maps, and
+    diagnostic summaries.
+License: MIT + file LICENSE
+URL: https://dboslab.github.io/moRphoTaxa-website/,
+    https://github.com/dboslab/moRphoTaxa
+BugReports: https://github.com/DBOSlab/moRphoTaxa/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends:
+    R (>= 4.1.0)
+Imports:
+    openxlsx,
+    cluster,
+    dendextend,
+    factoextra,
+    ggside,
+    vegan,
+    cowplot,
+    ggplot2,
+    viridis, 
+    MASS, 
+    dunn.test, 
+    mclust,
+    rlang,
+    adegenet,
+    dplyr,
+    geodata,
+    ggspatial,
+    reshape2,
+    rnaturalearth,
+    sf,
+    terra, 
+    tidyr, 
+    tidyselect,
+    ape, 
+    caret, 
+    ecospat, 
+    flexsdm, 
+    ggnewscale
+Suggests:
+    rmarkdown,
+    testthat (>= 3.0.0),
+    withr
+Config/testthat/edition: 3
+LazyData: true
+Config/roxygen2/version: 8.1.0

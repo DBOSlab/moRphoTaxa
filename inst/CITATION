@@ -1,0 +1,34 @@
+# inst/CITATION
+
+citHeader("To cite the moRphoTaxa package in publications, use:")
+
+bibentry(
+  bibtype = "Manual",
+  title = "moRphoTaxa: An automated and scalable R pipeline for morphometrics, ecogeography, and species delimitation",
+  author = c(
+    person(given = "João",
+           family = "Dornelas",
+           role = c("aut"),
+           email = "joaovitordornelas@hotmail.com",
+           comment = c(ORCID = "0009-0007-3416-9321")),
+    person(given = "Andressa",
+           family = "Novaes",
+           role = c("aut"),
+           email = "adrovlim@gmail.com",
+           comment = c(ORCID = "0009-0003-6735-0718")),
+    person(given = "Valner",
+           family = "Jordão",
+           role = c("aut"),
+           email = "valner.jordao@gmail.com",
+           comment = c(ORCID = "0000-0002-6328-0738")),
+    person(given = "Domingos", family = "Cardoso",
+           role = c("aut", "cre"),
+           email = "domingoscardoso@jbrj.gov.br",
+           comment = c(ORCID = "0000-0001-7072-2656"))
+  ),
+  year = 2026,
+  note = "R package version 1.0.0",
+  url = "https://github.com/DBOSlab/moRphoTaxa"
+)
+
+citFooter("This work was supported by CNPq PROTAX, with institutional support from the Rio de Janeiro Botanical Garden (JBRJ)")
