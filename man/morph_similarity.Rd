@@ -54,6 +54,10 @@ is created in the working directory, using the current date.}
 \item{file_formats}{Character vector specifying which image formats to
 save plots in. One or more of \code{"pdf"}, \code{"jpeg"}. Default is
 \code{c("pdf", "jpeg")}.}
+
+\item{verbose}{Logical. If \code{TRUE} (default), prints progress messages,
+per-block cluster summaries, skipped blocks, and the output directory to
+the console.}
 }
 \value{
 Invisibly, a named list with three elements:

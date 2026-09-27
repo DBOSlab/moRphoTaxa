@@ -80,6 +80,10 @@
 #' save plots in. One or more of `"pdf"`, `"jpeg"`. Default is
 #' `c("pdf", "jpeg")`.
 #'
+#' @param verbose Logical. If `TRUE` (default), prints progress messages,
+#' per-block cluster summaries, skipped blocks, and the output directory to
+#' the console.
+#'
 #' @return
 #' Invisibly, a named list with three elements:
 #'
