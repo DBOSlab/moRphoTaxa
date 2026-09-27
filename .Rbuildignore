@@ -4,3 +4,5 @@
 ^README\.Rmd$
 ^analysis$
 ^output_data$
+^codecov\.yml$
+^\.github$
