@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1060" font-family="'Open Sans', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1154" font-family="'Open Sans', Helvetica, Arial, sans-serif">
   <!-- Palette: Bootstrap/spacelab grays used across the moRphoTaxa website
        (#F8F9FA gray-100, #E9ECEF gray-200, #DEE2E6 gray-300, #ADB5BD gray-500,
         #6C757D gray-600, #495057 gray-700, #343A40 gray-800), mixed with the
@@ -10,7 +10,7 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="1200" height="1060" fill="#F8F9FA"/>
+  <rect x="0" y="0" width="1200" height="1154" fill="#F8F9FA"/>
 
   <!-- Title -->
   <text x="40" y="44" font-size="24" font-weight="700" fill="#1E5631">moRphoTaxa workflow</text>
@@ -20,48 +20,63 @@
   <text x="40" y="106" font-size="14" font-weight="700" fill="#3B7A3A">1. GET HERBARIUM DATA</text>
 
   <g font-size="13.5">
-    <rect x="230" y="118" width="220" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
-    <text x="340" y="143" text-anchor="middle" fill="#343A40" font-weight="600">refloraR</text>
-    <text x="340" y="162" text-anchor="middle" fill="#6C757D" font-size="11">REFLORA Virtual Herbarium</text>
+    <rect x="170" y="118" width="200" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="270" y="143" text-anchor="middle" fill="#343A40" font-weight="600">refloraR</text>
+    <text x="270" y="162" text-anchor="middle" fill="#6C757D" font-size="11">REFLORA Virtual Herbarium</text>
 
-    <rect x="490" y="118" width="220" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
-    <text x="600" y="143" text-anchor="middle" fill="#343A40" font-weight="600">jabotR</text>
-    <text x="600" y="162" text-anchor="middle" fill="#6C757D" font-size="11">JABOT</text>
+    <rect x="400" y="118" width="200" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="500" y="143" text-anchor="middle" fill="#343A40" font-weight="600">jabotR</text>
+    <text x="500" y="162" text-anchor="middle" fill="#6C757D" font-size="11">JABOT</text>
 
-    <rect x="750" y="118" width="220" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
-    <text x="860" y="143" text-anchor="middle" fill="#343A40" font-weight="600">plantR</text>
-    <text x="860" y="162" text-anchor="middle" fill="#6C757D" font-size="11">speciesLink · GBIF</text>
+    <rect x="630" y="118" width="200" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="730" y="143" text-anchor="middle" fill="#343A40" font-weight="600">plantR</text>
+    <text x="730" y="162" text-anchor="middle" fill="#6C757D" font-size="11">speciesLink · GBIF</text>
+
+    <rect x="870" y="118" width="200" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="970" y="143" text-anchor="middle" fill="#343A40" font-weight="600">barroso_dwc()</text>
+    <text x="970" y="162" text-anchor="middle" fill="#6C757D" font-size="11">barRoso · speciesLink to Darwin Core</text>
   </g>
+  <line x1="830" y1="147" x2="866" y2="147" stroke="#6C757D" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <!-- stage 1 -> stage 2: the three sources merge on a bus into barRoso -->
+  <!-- REFLORA, JABOT, GBIF (from plantR) and the Darwin Core speciesLink
+       records join one bus that feeds barroso_cat() -->
   <g fill="none" stroke="#6C757D" stroke-width="2">
-    <path d="M340,176 L340,198 L860,198 L860,176"/>
-    <path d="M600,176 L600,198"/>
-    <path d="M480,198 L480,234" marker-end="url(#arrow)"/>
+    <path d="M270,176 L270,198 L970,198 L970,176"/>
+    <path d="M500,176 L500,198"/>
+    <path d="M730,176 L730,198"/>
+    <path d="M620,198 L620,218" marker-end="url(#arrow)"/>
   </g>
-
-  <!-- ============ STAGE 2: Clean occurrence data ============ -->
-  <text x="40" y="224" font-size="14" font-weight="700" fill="#3B7A3A">2. CLEAN OCCURRENCE DATA</text>
 
   <g font-size="13.5">
-    <rect x="380" y="236" width="200" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
-    <text x="480" y="261" text-anchor="middle" fill="#343A40" font-weight="600">barRoso</text>
-    <text x="480" y="280" text-anchor="middle" fill="#6C757D" font-size="11">merge · deduplicate · harmonize</text>
-
-    <rect x="620" y="236" width="200" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
-    <text x="720" y="261" text-anchor="middle" fill="#343A40" font-weight="600">lcvplants</text>
-    <text x="720" y="280" text-anchor="middle" fill="#6C757D" font-size="11">standardize names (LCVP)</text>
+    <rect x="500" y="220" width="240" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="620" y="245" text-anchor="middle" fill="#343A40" font-weight="600">barroso_cat()</text>
+    <text x="620" y="264" text-anchor="middle" fill="#6C757D" font-size="11">barRoso · merge the four sources</text>
   </g>
-  <line x1="580" y1="265" x2="616" y2="265" stroke="#6C757D" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="620" y1="278" x2="620" y2="328" stroke="#6C757D" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <!-- curated spreadsheet feeds both matrix builders. The bus (y=340) sits
-       above the stage-3 header baseline but to the right of its short text,
-       so no connector crosses the header glyphs. -->
-  <path d="M720,294 L720,340" fill="none" stroke="#6C757D" stroke-width="2"/>
-  <text x="732" y="322" font-size="11.5" font-style="italic" fill="#6C757D">curated occurrence spreadsheet (.xlsx)</text>
-  <path d="M720,340 L375,340 L375,370" fill="none" stroke="#6C757D" stroke-width="2" marker-end="url(#arrow)"/>
-  <path d="M720,340 L934,340 L934,468" fill="none" stroke="#6C757D" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- ============ STAGE 2: Clean occurrence data ============ -->
+  <text x="40" y="318" font-size="14" font-weight="700" fill="#3B7A3A">2. CLEAN OCCURRENCE DATA</text>
 
+  <g font-size="13.5">
+    <rect x="470" y="330" width="300" height="58" rx="10" fill="#F1F3F5" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="620" y="355" text-anchor="middle" fill="#343A40" font-weight="600">barroso_std()</text>
+    <text x="620" y="374" text-anchor="middle" fill="#6C757D" font-size="11">barRoso · misidentifications · duplicates · unvouchered</text>
+  </g>
+
+  <!-- optional manual review loop back into barroso_std() -->
+  <path d="M770,346 L822,346 L822,372 L774,372" fill="none" stroke="#ADB5BD" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="832" y="355" font-size="11" font-style="italic" fill="#6C757D">manual corrections,</text>
+  <text x="832" y="370" font-size="11" font-style="italic" fill="#6C757D">then re-run if needed</text>
+
+  <!-- the curated spreadsheet feeds both matrix builders. The bus (y=434)
+       sits above the stage-3 header baseline and right of its short text. -->
+  <path d="M620,388 L620,434" fill="none" stroke="#6C757D" stroke-width="2"/>
+  <text x="632" y="416" font-size="11.5" font-style="italic" fill="#6C757D">curated occurrence spreadsheet (.xlsx)</text>
+  <path d="M620,434 L375,434 L375,464" fill="none" stroke="#6C757D" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M620,434 L934,434 L934,562" fill="none" stroke="#6C757D" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stages 3-4 and the footer, shifted down to make room for the barRoso steps -->
+  <g transform="translate(0,94)">
   <!-- ============ STAGE 3: Build matrices ============ -->
   <text x="40" y="360" font-size="14" font-weight="700" fill="#3B7A3A">3. BUILD MATRICES</text>
 
@@ -187,4 +202,5 @@
 
   <text x="40" y="1020" font-size="12" fill="#6C757D">Analyses run on each trait block (vegetative, floral, fruit) and on their combinations, and write their outputs to dated</text>
   <text x="40" y="1038" font-size="12" fill="#6C757D">folders in the working directory. Taxon colours set in morph_matrix_setting() are reused across all figures.</text>
+  </g>
 </svg>
