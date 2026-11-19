@@ -1,8 +1,6 @@
 # Auxiliary functions for morphometrics pipeline
 # Authors: João Dornelas & Domingos Cardoso
 
-#_______________________________________________________________________________
-# Trait column naming in the analysis (full name vs. code vs. unchanged)
 
 #_______________________________________________________________________________
 # Quiet loading of plotting dependencies
@@ -19,3 +17,17 @@
   invisible(NULL)
 }
 
+
+#_______________________________________________________________________________
+# Function to insert a word after another word in a string ####
+
+insert_after_word <- function(vec, insert_map) {
+  for (i in seq_along(insert_map)) {
+    after <- names(insert_map)[i]
+    insert <- insert_map[[i]]
+    if (!insert %in% vec && after %in% vec) {
+      vec <- append(vec, insert, after = match(after, vec))
+    }
+  }
+  vec
+}
